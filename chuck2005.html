@@ -1,0 +1,27 @@
+<html>
+
+    <script type="text/javascript">
+
+window.onload = function () {
+    let xmlhttp = new XMLHttpRequest();
+    // Comando (get), url : 'http://api.icndb.com/jokes/random/', asincrono?? => true
+    xmlhttp.open('GET', 'http://api.icndb.com/jokes/random/', true);
+    //Asignamos la función callback de respuesta
+    xmlhttp.onreadystatechange = function(){
+        //Creamos un objeto con JSON (Fijaros que no es XML como inicialmente decia AJAX)
+        let textoChiste = JSON.parse(this.response).value.joke;
+
+        console.log('chiste recibido: ' + textoChiste);
+        let h1s = document.querySelector('h1');
+        ///Equivalente => let h1s = document.getElementsByTagName('h1');
+        h1s.innerHTML = textoChiste;
+    }
+    //Se envia la petición get
+    xmlhttp.send();
+};
+    </script>
+    <head> <title>Chuck 2005</title> </head>
+    <body>
+        <h1>Aqui ira el chiste</h1>
+    </body>
+</html>
