@@ -1,0 +1,11 @@
+{
+  "name": "laboratorio1",
+  "version": "1.0.0",
+  "main": "chuck2014-node-fetch.js",
+  "scripts": {
+    "start": "node chuck2014-node-fetch.js"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  }
+}
