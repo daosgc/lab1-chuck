@@ -4,7 +4,9 @@
     fetch("http://api.icndb.com/jokes/random")
       .then(response => response.json())
       .then(data => {
-        console.log(data)
+        let textoChiste = data.value.joke;
+        let content = document.querySelector('.content-chiste');
+        content.innerHTML = textoChiste;
       });
   </script>
 <head>
@@ -14,6 +16,9 @@
   <title>Chuck 2014 con fetch</title>
 </head>
 <body>
-  <h1>Aqui ira el chiste</h1>
+  <div class="jumbotron">
+    <h1 class="display-4">Chuck 2014 Fetch</h1>
+    <p class="content-chiste"></p>
+  </div>
 </body>
 </html>
