@@ -1,0 +1,35 @@
+<html>
+  <script type="text/javascript">
+    // Esperamos que se cargen todos los recursos
+    window.onload = function () {
+      /*
+      * Creamos una instancia de la clase XMLHttpRequest que será la encargada de obtener
+      * la información desde el servidor
+      */
+      let xmlhttp = new XMLHttpRequest();
+      // Abrimos el protocolo de comunicación e indicamos el API de donde vamos a obtener la información
+      xmlhttp.open('GET', 'http://api.icndb.com/jokes/random/', true);
+      //Asignamos la función callback de respuesta
+      xmlhttp.onreadystatechange = function() {
+        // Parseamos la data a un objeto JSON
+        let textoChiste = JSON.parse(this.response).value.joke;
+        // Seleccionamos el elemento html a donde vamos mostrar la data
+        let content = document.querySelector('.content-chiste');
+        // Apendamos la dara al elemento seleccionado anteriormente
+        content.innerHTML = textoChiste;
+      };
+      //Se envia la petición get
+      xmlhttp.send();
+    };
+  </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <head>
+    <title>Chuck 2005</title>
+  </head>
+  <body>
+    <div class="jumbotron">
+      <h1 class="display-4">Chuck 2005 with Bootstrap</h1>
+      <p class="content-chiste"></p>
+    </div>
+  </body>
+</html>
