@@ -1,19 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
         crossorigin="anonymous"></script>
 
+<!--Declaracion de ICDN jquery plugin para ChuckNorris-->
+<script src="http://code.icndb.com/jquery.icndb.min.js"></script>
 
+<!--Script de Bootstrap-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<!--Script principal-->
 <script type="text/javascript">
-//$.get es la forma de conectarse por le método get con JQuery
-//El segundo parámetro es el callback. 
-$.get("http://api.icndb.com/jokes/random", (response) => {
-	//El response ya viene con le json procesado
-    var textoChiste = response.value.joke;
-    //Para buscar con JQuery un elemento usamos $(etiqueta)
- 	$('h1').text(textoChiste);
-})
+
+//Se llama al método del plugin para traer los chistes
+$.icndb.getRandomJokes({ 
+	number: 10, 
+  	success: (response) => {
+                response.forEach(element => { $("ul").append('<li class="list-group-item">' + element.joke + '</li>'); 
+        });
+}});
 
 </script>
 <head>
@@ -22,6 +29,11 @@ $.get("http://api.icndb.com/jokes/random", (response) => {
     <title>Chuck 2006 con jquery</title>
 </head>
 <body>
-        <h1>Aqui ira el chiste</h1>
+        
+        <div class="jumbotron">
+            <h1 class="display-4">Chuck 2006 ICDN Plugin</h1>
+            <ul class="list-group"></ul>
+        </div>
 </body>
+
 </html>
