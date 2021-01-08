@@ -1,26 +1,36 @@
 <html>
-    <script>
-      window.onload = function() {
-        for (let index = 0; index < 10; index++) {
-          $("tbody").append("<tr class='row-joke'><th><chuck-norris-joke></chuck-norris-joke></th></tr>")
-        }
+  <script>
+    // Esperamos que se cargen todos los recursos
+    window.onload = function() {
+      //Creamos dinámicamente las filas de la tabla con el componente chuck-norris-joke
+      for (let index = 0; index < 10; index++) {
+        //Apendamos la fila que contiene el component al cuerpo de la tabla usando JQuery
+        $("tbody").append("<tr><td><chuck-norris-joke></chuck-norris-joke></td></tr>");
       }
-    </script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="import" href="https://raw.githubusercontent.com/erikringsmuth/chuck-norris-joke/master/chuck-norris-joke.html">
-    <script src="https://code.jquery.com/jquery-3.4.1.js"
-        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-        crossorigin="anonymous"></script>
-    <head> <title>Chuck Components</title> </head>
-    <body>
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Chuck Joke</th>
-          </tr>
-        </thead>
-        <tbody>
-        </tbody>
-      </table>
-    </body>
+    }
+  </script>
+  <!-- Añadimos skeleton css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.css">
+  <!-- Añadimos la libreria de los web componentes -->
+  <link rel="import" href="https://raw.githubusercontent.com/erikringsmuth/chuck-norris-joke/master/chuck-norris-joke.html">
+  <!-- Añadimos JQuery -->
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+  <!-- Header -->
+  <head> <title>Chuck Components</title> </head>
+  <!-- Body -->
+  <body>
+    <!-- Creamos la tabla usando la clase de skeleton -->
+    <table class="u-full-width">
+      <!-- Creamos la cabecera de la tabla -->
+      <thead>
+        <tr>
+          <th>Chuck Joke</th>
+        </tr>
+      </thead>
+      <!-- Creamos el cuerpo de la tabla (aquí irán los chistes)-->
+      <tbody>
+      </tbody>
+    </table>
+  </body>
 </html>
