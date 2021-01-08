@@ -1,27 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<script src="https://code.jquery.com/jquery-3.4.1.js"
-        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-        crossorigin="anonymous"></script>
-
-
-<script type="text/javascript">
-//$.get es la forma de conectarse por le método get con JQuery
-//El segundo parámetro es el callback. 
-$.get("http://api.icndb.com/jokes/random", (response) => {
-	//El response ya viene con le json procesado
-    var textoChiste = response.value.joke;
-    //Para buscar con JQuery un elemento usamos $(etiqueta)
- 	$('h1').text(textoChiste);
-})
-
-</script>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chuck 2006 con jquery</title>
-</head>
-<body>
-        <h1>Aqui ira el chiste</h1>
-</body>
+<!DOCTYPE html> <!-- Especificación del tipo de documento -->
+<html lang="en"> <!-- Especificación del idioma -->
+	<script src="https://code.jquery.com/jquery-3.4.1.js"
+	  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+	  crossorigin="anonymous">
+	</script> <!-- Importación de Jquery por CDN -->
+	<!--Incorporación de script en HTML-->
+	<script type="text/javascript"> 
+		//$.get es la forma de conectarse por le método get con JQuery
+		//El segundo parámetro es el callback. 
+		$.get("http://api.icndb.com/jokes/random", (response) => {
+			//El response ya viene con le json procesado
+			var textoChiste = response.value.joke;
+			//Para buscar con JQuery un elemento usamos $(etiqueta)
+			//El método text reemplaza el texto en el selector indicado
+			$('h1').text(textoChiste);
+		});
+	</script>
+	<!--Etiqueta principal de HEAD-->
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Chuck 2006 con jquery</title>
+	</head>
+	<!--Etiqueta body-->
+	<body>
+		<h1>Aqui ira el chiste</h1> <!--Etiqueta que será reemplazada por el resultado del API-->
+	</body>
 </html>

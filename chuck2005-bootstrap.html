@@ -9,26 +9,31 @@
       let xmlhttp = new XMLHttpRequest();
       // Abrimos el protocolo de comunicación e indicamos el API de donde vamos a obtener la información
       xmlhttp.open('GET', 'http://api.icndb.com/jokes/random/', true);
-      // Asignamos la función callback de respuesta
-      xmlhttp.onreadystatechange = function(){
+      //Asignamos la función callback de respuesta
+      xmlhttp.onreadystatechange = function() {
         // Parseamos la data a un objeto JSON
         let textoChiste = JSON.parse(this.response).value.joke;
         // Seleccionamos el elemento html a donde vamos mostrar la data
-        let h1s = document.querySelector('h1');
-        ///Equivalente => let h1s = document.getElementsByTagName('h1');
-        h1s.innerHTML = textoChiste;
-      }
+        let content = document.querySelector('.content-chiste');
+        // Apendamos la dara al elemento seleccionado anteriormente
+        content.innerHTML = textoChiste;
+      };
       //Se envia la petición get
       xmlhttp.send();
     };
   </script>
+  <!-- Cdn para obtener los elementos de boostrar -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <!-- Header -->
   <head>
     <title>Chuck 2005</title>
   </head>
   <!-- Body -->
   <body>
-    <!-- Etiqueta donde mostraremos el chiste -->
-    <h1>Aqui ira el chiste</h1>
+    <div class="jumbotron">
+      <h1 class="display-4">Chuck 2005 with Bootstrap</h1>
+      <!-- Etiqueta donde mostraremos el chiste -->
+      <p class="content-chiste"></p>
+    </div>
   </body>
 </html>
