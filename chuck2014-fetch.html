@@ -1,24 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-  <script type="text/javascript">
-    fetch("http://api.icndb.com/jokes/random")
-      .then(response => response.json())
-      .then(data => {
-        let textoChiste = data.value.joke;
-        let content = document.querySelector('.content-chiste');
-        content.innerHTML = textoChiste;
+<!DOCTYPE html> <!-- Especificación del tipo de documento -->
+<html lang="en"> <!-- Especificación del idioma -->
+  <script type="text/javascript"> //Incorporación de Javascript
+    fetch("http://api.icndb.com/jokes/random") //Llamada utilizando fetch
+      .then(response => response.json()) //Captura de la promesa y se indica que se tratara de un json
+      .then(data => {  //Se captura la respuesta en la variable data
+        let textoChiste = data.value.joke; // Se asigna el valor del chiste
+        let content = document.querySelector('.content-chiste'); //Se crea el selector donde irá el chiste
+        content.innerHTML = textoChiste; //Se reemplaza el contenido con el chiste
       });
-  </script>
+  </script> <!--Cierre del script-->
 <head>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chuck 2014 con fetch</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+  crossorigin="anonymous"><!--Declaración de Bootstrap-->
+  <meta charset="UTF-8"><!--Metatag de tipo de codificación-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Metatag para modo responsive-->
+  <title>Chuck 2014 con fetch</title> <!--Título de la App-->
 </head>
 <body>
-  <div class="jumbotron">
-    <h1 class="display-4">Chuck 2014 Fetch</h1>
-    <p class="content-chiste"></p>
-  </div>
+  <div class="container"> <!--Div padre para centrar en bootstrap-->
+    <div class="jumbotron"> <!--Div con clase jumbotron bootstrap-->
+      <h1 class="display-4">Chuck 2014 Fetch</h1> <!--Título del sitio-->
+    </div>
+    <p class="content-chiste"></p><!--Tag para el contenido del chiste-->
+</div>
 </body>
 </html>
